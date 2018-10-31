@@ -27,8 +27,8 @@ const topics = {
   auth: ['username']
 }
 
-export function up(vault: any, cb: any) => mysql.createTopicTables(vault, topics).then(cb).catch(cb)
-export function down(vault: any, cb: any) => mysql.dropTopicTables(vault, topics).then(cb).catch(cb)
+export const up = (vault: any, cb: any) => mysql.createTopicTables(vault, topics).then(cb).catch(cb)
+export const down = (vault: any, cb: any) => mysql.dropTopicTables(vault, topics).then(cb).catch(cb)
 ```
 
 > ./lib/archivist/migrations/anotherVaultName/0.0.1.ts
@@ -45,8 +45,8 @@ const tables = {
 };
 
 
-export function up(vault: any, cb: any) => mysql.createTables(vault, tables).then(cb).catch(cb)
-export function down(vault: any, cb: any) => mysql.dropTables(vault, tables).then(cb).catch(cb)
+export const up = (vault: any, cb: any) => mysql.createTables(vault, tables).then(cb).catch(cb)
+export const down = (vault: any, cb: any) => mysql.dropTables(vault, tables).then(cb).catch(cb)
 ```
 
 ### Making queries
