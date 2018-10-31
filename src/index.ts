@@ -59,8 +59,8 @@ export async function createTable(vault: any, tableName: string, schema: any) {
  * @param vault
  * @param topics
  */
-export async function createTopicTables(vault: any, topics: { [key: string]: mage.archivist.ITopic }) {
-  for (const [name, { index }] of Object.entries(topics)) {
+export async function createTopicTables(vault: any, topics: { [key: string]: string[] }) {
+  for (const [name, index] of Object.entries(topics)) {
     await createTopicTable(vault, name, index)
   }
 }
@@ -82,6 +82,27 @@ export async function createTopicTable(vault: any, name: string, index: string[]
   columns.push({ name: 'mediaType', type: 'VARCHAR(40)', pk: false })
 
   await createTable(vault, name, columns)
+}
+
+/**
+ *
+ * @param vault
+ * @param topics
+ */
+export async function dropTopicTables(vault: any, topics: { [key: string]: string[] }) {
+  for (const name of Object.keys(topics)) {
+    await dropTopicTable(vault, name)
+  }
+}
+
+/**
+ *
+ * @param vault
+ * @param name
+ * @param index
+ */
+export async function dropTopicTable(vault: any, name: string) {
+  await dropTable(vault, name)
 }
 
 /**
