@@ -72,10 +72,10 @@ export async function createTopicTables(vault: any, topics: { [key: string]: str
  * @param index
  */
 export async function createTopicTable(vault: any, name: string, index: string[]) {
-  const columns = index.map((field, pos) => ({
+  const columns = index.map((field) => ({
     name: field,
-    type: 'VARCHAR(36) NOT NULL UNIQUE',
-    pk: pos === 0
+    type: 'VARCHAR(36) NOT NULL',
+    pk: true
   }))
 
   columns.push({ name: 'value', type: 'LONGTEXT', pk: false })
