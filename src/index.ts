@@ -197,7 +197,7 @@ export function getVaultClient(vaultName: string): mysql.Pool {
  * @param vaultName
  * @param queryString
  */
-export async function query<T>(vault: any, queryString: string, data: any[] = []): Promise<T> {
+export async function query<T>(vault: any, queryString: string, data: any): Promise<T> {
     const client = typeof vault === 'string' ? getVaultClient(vault) : vault as mysql.Pool
 
     return new Promise<T>((resolve, reject) => {
