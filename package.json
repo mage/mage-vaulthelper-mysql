@@ -1,6 +1,6 @@
 {
   "name": "mage-vaulthelper-mysql",
-  "version": "0.0.8",
+  "version": "0.0.9",
   "description": "MySQL vault backend helper.",
   "main": "./lib/index.js",
   "types": "./lib/index.d.ts",
